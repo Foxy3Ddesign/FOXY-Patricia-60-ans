@@ -1,74 +1,54 @@
+
 import "./css/main.css";
-import { creerCompte, connexion } from "./pages/inscription";
+
+const lienAlbum =
+    "https://guestalbum.so/a/les-50-ans-d-anne?ref=link";
 
 document.querySelector("#app").innerHTML = `
-<section class="hero">
-    <div class="hero-content">
+    <section class="hero">
+        <div class="hero-content">
 
-        <h1>Les Plus Beaux Souvenirs</h1>
+            <p class="surtitre">Un jour, mille souvenirs</p>
 
-        <p>Bienvenue aux 50 ans d'Anne</p>
+            <h1>Les Plus Beaux Souvenirs</h1>
 
-        <div id="contenu">
+            <p class="bienvenue">
+                Bienvenue aux 50 ans d'Anne
+            </p>
 
-            <button id="btnInscription" class="btn">
-                Créer un compte
-            </button>
+            <p class="description">
+                Partageons ensemble les souvenirs de cette belle journée.
+                Retrouvez les photos et laissez un petit mot à Anne.
+            </p>
+
+            <div class="actions-album">
+
+                <a
+                    class="btn"
+                    href="${lienAlbum}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Découvrir l'album
+                </a>
+
+                <a
+                    class="btn btn-secondaire"
+                    href="${lienAlbum}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ajouter mes photos
+                </a>
+
+                <a
+                    class="lien-livre-or"
+                    href="${lienAlbum}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Écrire dans le livre d'or
+                </a>
+
+            </div>
 
         </div>
-
-    </div>
-</section>
+    </section>
 `;
-
-const bouton = document.querySelector("#btnInscription");
-
-bouton.addEventListener("click", () => {
-
-    document.querySelector("#contenu").innerHTML = `
-        <h2>Créer un compte</h2>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="Votre adresse e-mail">
-
-        <br><br>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Votre mot de passe">
-
-        <br><br>
-
-        <button id="valider" class="btn">
-            Créer mon compte
-        </button>
-
-        <br><br>
-
-        <button id="connexion" class="btn">
-            Se connecter
-        </button>
-    `;
-
-    document.querySelector("#valider").addEventListener("click", async () => {
-
-        const email = document.querySelector("#email").value;
-        const motDePasse = document.querySelector("#password").value;
-
-        await creerCompte(email, motDePasse);
-
-    });
-
-    document.querySelector("#connexion").addEventListener("click", async () => {
-
-        const email = document.querySelector("#email").value;
-        const motDePasse = document.querySelector("#password").value;
-
-        await connexion(email, motDePasse);
-
-    });
-
-});
