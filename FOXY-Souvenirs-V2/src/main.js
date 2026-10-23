@@ -8,18 +8,9 @@ document.querySelector("#app").innerHTML = `
     <section class="hero">
         <div class="hero-content">
 
-            <p class="surtitre">Un jour, mille souvenirs</p>
-
-            <h1>Les Plus Beaux Souvenirs</h1>
-
-            <p class="bienvenue">
+            <h1 class="bienvenue">
                 Bienvenue aux 50 ans d'Anne
-            </p>
-
-            <p class="description">
-                Partageons ensemble les souvenirs de cette belle journée.
-                Retrouvez les photos et laissez un petit mot à Anne.
-            </p>
+            </h1>
 
             <div class="actions-album">
 
