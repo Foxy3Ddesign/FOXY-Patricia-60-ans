@@ -27,11 +27,10 @@ jobs:
           sparse-checkout: |
             FOXY-Souvenirs-V2
 
-      - name: Installer Node.js
+           - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: FOXY-Souvenirs-V2/package-lock.json
 
       - name: Installer les dependances
         working-directory: FOXY-Souvenirs-V2
