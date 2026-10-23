@@ -19,12 +19,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-           - name: Recuperer le code
+      - name: Recuperer le code
         uses: actions/checkout@v4
 
-           - name: Installer Node.js
+      - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -46,12 +45,11 @@ jobs:
           path: FOXY-Souvenirs-V2/dist
 
   deploy:
+    runs-on: ubuntu-latest
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-
     steps:
       - name: Publier le site
         id: deployment
