@@ -1,5 +1,5 @@
 
-name: Publier FOXY Souvenirs sur GitHub Pages
+name: Publier le site de Patricia sur GitHub Pages
 
 on:
   push:
@@ -27,13 +27,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: FOXY-Patricia-60-ans/package-lock.json
 
       - name: Installer les dependances
-        working-directory: FOXY-Souvenirs-V2
+        working-directory: FOXY-Patricia-60-ans
         run: npm ci
 
       - name: Construire le site
-        working-directory: FOXY-Souvenirs-V2
+        working-directory: FOXY-Patricia-60-ans
         run: npm run build
 
       - name: Preparer GitHub Pages
@@ -42,7 +44,7 @@ jobs:
       - name: Envoyer les fichiers du site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: FOXY-Souvenirs-V2/dist
+          path: FOXY-Patricia-60-ans/dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,3 +56,4 @@ jobs:
       - name: Publier le site
         id: deployment
         uses: actions/deploy-pages@v4
+
