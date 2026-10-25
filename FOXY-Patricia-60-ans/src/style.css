@@ -1,0 +1,261 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #ead8c1;
+}
+
+.page-patricia {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+}
+
+.carte-anniversaire {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 0 22px 30px;
+  color: #fffaf3;
+  background: linear-gradient(
+  to bottom,
+  #d5b69a,
+  #dfc4a7 55%,
+  #d5b69a 100%
+);
+}
+
+/* Photo originale en haut */
+
+.photo-fond {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  background-image: url('/images/PATRICIA.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 65%,
+    rgba(0, 0, 0, 0.85) 76%,
+    rgba(0, 0, 0, 0.45) 88%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 65%,
+    rgba(0, 0, 0, 0.85) 76%,
+    rgba(0, 0, 0, 0.45) 88%,
+    transparent 100%
+  );
+}
+
+
+/* Fond flou prolongé derrière le texte et les boutons */
+.carte-anniversaire::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 35%;
+  left: -10%;
+  width: 120%;
+  height: 70%;
+  background-image: url('/images/PATRICIA.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(65px);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Transition douce entre la photo et le fond inférieur */
+
+
+
+
+.voile {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 32%,
+    rgba(213, 182, 154, 0.04) 38%,
+    rgba(213, 182, 154, 0.12) 43%,
+    rgba(213, 182, 154, 0.28) 48%,
+    rgba(213, 182, 154, 0.55) 54%,
+    rgba(213, 182, 154, 0.82) 61%,
+    rgba(213, 182, 154, 0.96) 70%,
+    #d5b69a 82%,
+    #d5b69a 100%
+  );
+}
+
+
+
+
+
+.entete {
+  position: relative;
+  text-align: center;
+  margin-top: 45svh;
+  padding: 0 0 4px;
+  text-shadow: 0 2px 10px rgba(40, 20, 10, 0.3);
+}
+
+.surtitre {
+  margin: 0 0 13px;
+  color: #f2cb78;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 8vw, 44px);
+  font-weight: normal;
+  line-height: 1.08;
+}
+
+.age {
+  display: block;
+  margin: 5px 0;
+  color: #f2c45e;
+  font-size: clamp(62px, 15vw, 82px);
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.prenom {
+  display: block;
+  font-size: clamp(31px, 7.5vw, 42px);
+}
+
+.message {
+  max-width: 390px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.acces {
+  display: grid;
+  gap: 13px;
+  width: 100%;
+  margin: 28px auto 0;
+}
+
+.bouton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 14px 18px;
+  border: 1.5px solid #e8b85f;
+  border-radius: 999px;
+  background: #fff2df;
+  color: #873b27;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(40, 20, 10, 0.12);
+  transition: transform 0.15s ease;
+}
+
+.bouton-principal {
+  background: #b94730;
+  border-color: #edc477;
+  color: #fffaf3;
+}
+
+.bouton:active {
+  transform: scale(0.98);
+}
+
+@media (min-width: 700px) {
+  .carte-anniversaire {
+    min-height: min(950px, 100vh);
+    padding-right: 34px;
+    padding-left: 34px;
+  }
+
+  .photo-fond {
+    height: 57%;
+    background-position: center 35%;
+  }
+
+  .entete {
+    margin-top: min(410px, 43vh);
+  }
+
+  .acces {
+    max-width: 440px;
+  }
+}
+
+@media (max-height: 740px) and (max-width: 699px) {
+  .carte-anniversaire {
+    padding-bottom: 20px;
+  }
+
+  .entete {
+    margin-top: 40svh;
+  }
+
+  .surtitre {
+    margin-bottom: 8px;
+  }
+
+  .age {
+    font-size: clamp(54px, 13vw, 68px);
+  }
+
+  .message {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .acces {
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .bouton {
+    min-height: 49px;
+    font-size: 15px;
+  }
+}
+
