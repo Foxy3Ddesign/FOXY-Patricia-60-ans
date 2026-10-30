@@ -2,7 +2,7 @@
 import './style.css'
 
 const lienAlbum = 'https://guestalbum.so/a/les-60-ans-de-patricia?ref=link'
-const lienPhotosLivreOr = 'https://guestalbum.so/a/la-soiree-des-60-ans-de-patricia?ref=link'
+const lienParticipation = 'https://guestalbum.so/a/la-soiree-des-60-ans-de-patricia?ref=link'
 
 document.querySelector('#app').innerHTML = `
   <main class="page-patricia">
@@ -26,14 +26,10 @@ document.querySelector('#app').innerHTML = `
         <a class="bouton bouton-principal" href="${lienAlbum}">
           Découvrir l’album
         </a>
-        <a class="bouton" href="${lienPhotosLivreOr}">
-          Ajouter mes photos
-        </a>
-        <a class="bouton" href="${lienPhotosLivreOr}">
-          Écrire dans le livre d’or
+        <a class="bouton" href="${lienParticipation}">
+          Ajouter mes photos et laisser un message
         </a>
       </nav>
     </section>
   </main>
 `
-
